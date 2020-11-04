@@ -36,9 +36,10 @@ pipeline {
 
         stage('sonar quality gate') {
             steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    waitForQualityGate abortPipeline: true
-                }
+                sh 'echo well'
+                // timeout(time: 1, unit: 'HOURS') {
+                //     waitForQualityGate abortPipeline: true
+                // }
             }
             post {
                 success {
