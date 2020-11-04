@@ -78,8 +78,8 @@ pipeline {
         stage('deploy to remote K8S cluster') {
             steps {
                 withKubeConfig([credentialsId: 'k8sCred', serverUrl: '${KUBEURL}']) {
-                    sh 'kubectl apply -f deploy.yaml'
-                    sh 'kubectl rollout restart deployment/sample-app'
+                    sh 'kubectl apply -f kubernetes.yml'
+                    sh 'kubectl rollout restart deployment/sample-spring-boot'
                  }
              }
             post {
